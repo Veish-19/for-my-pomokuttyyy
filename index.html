@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My POMO 💖💖💖❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe4f0 100%);
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        /* Floating hearts animation */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float 8s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #c74375;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(199,67,117,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #8b5a7d;
+            font-style: italic;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(199,67,117,0.15);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #c74375;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '❤️';
+            display: block;
+            font-size: 0.5em;
+            margin-top: 10px;
+        }
+
+        /* Love Letter */
+        .love-letter {
+            background: linear-gradient(to bottom, #fff9fc 0%, #ffffff 100%);
+            border-left: 4px solid #c74375;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            line-height: 1.8;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        .love-letter::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 4em;
+            color: #f4a4c4;
+            font-family: serif;
+        }
+
+        .letter-signature {
+            text-align: right;
+            margin-top: 20px;
+            font-style: italic;
+            color: #8b5a7d;
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f4a4c4 0%, #c74375 100%);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(199,67,117,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(199,67,117,0.9), transparent);
+            color: white;
+            padding: 20px;
+            font-size: 0.9em;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #f4a4c4, #c74375);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '💕';
+            position: absolute;
+            top: 0;
+            font-size: 1.5em;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -30px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -30px;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #c74375;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: #fff9fc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(199,67,117,0.1);
+        }
+
+        /* Placeholder images */
+        .placeholder-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #8b5a7d;
+            font-style: italic;
+        }
+
+        /* Question Section */
+        #question {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .button-container {
+            transition: opacity 0.5s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+                padding-left: 60px !important;
+                padding-right: 0 !important;
+            }
+
+            .timeline-item::before {
+                left: -5px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>To My POMOKUTTYYYYYYYYY!!!!!!!</h1>
+        <p class="subtitle">Happy Valentine's Day, My Wifeyyyyyyyy</p>
+    </header>
+
+    <div class="container">
+        <!-- Love Letters Section -->
+        <section id="letters">
+            <h2>Love Letters</h2>
+            
+            <div class="love-letter">
+                <p>My Dearest POMO ,</p>
+                <p>From the moment you came into my life, everything changed maa. You saved me from the darkest side in me. I have never been this happy in my life babyy. I am sooo luckyy to have youu in my lifeee papyyyyyy</p>
+                <p>Having you on my side is always a motivation to me maa... I have the confidence to do and achieve anything in my life... i js need you and only youu maa thats all i neeeeed 🥺🥺🥺🥺🥺 </p>
+                <p>I promise to always be there for you babyy, to hold your hand through every challenge, and to celebrate every momentssss. You are my best friend, my partner,my partner in crime, and the love of my life.💖💖💖💖💖💖💖💖💖💖</p>
+                <div class="letter-signature">Yst ... Today... Tmrw... Futuree and Foreverrrr IM ONLYY YOURSSSSS ❤️</div>
+            </div>
+
+            <div class="love-letter">
+                <p>To the one who I'm gonna share my future with...</p>
+                <p>Words can hardly describe how much you mean to me papyyyy. You have showed me a love that is so truee and genuinee that it takes my breathhh awayyyyy. In your eyes, I see my future... having you on my side , I found my homee. 🥺🥺🥺</p>
+                <p>Eventho we argue i will still love youu... eventho we are upset i will still love youu... eventho we fight i will still love youu... No matter what happens i will never stop loving you until my last breath chellokuttyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+                <p>You are the most Adorableee... Beautifull... Charmingg... Dazzling... Elegancee... Fantastic... Facinatingg... Genuinee... Geniuss... Gorgeouss... Hottt... intelligenttt... Joyfull... Mostt kindd... Loyall... Lovelyy... Marvelouss.. Magicall... Nicee... Outstandingggg...Mostt Preciouss Personn... Mostt Perfecttt... My Queen 🥺🥺🥺...Mostt romanticc... Mostt sweetesttttt... Most treasureee... Mostt Uniquee... To thiss Valentineeee ... Just USSSS...XOXO 💋💋💋...And Im only YOURSSSSSS 😘😘😘🙈🙈🙈🙈🙈🙈🙈🙈  </p>
+                <p>I love you more than yesterday, but not as much as tomorrow... which means i love youu more and moree every singlee dayyy. Happy Valentine's Days, my darling.</p>
+                <div class="letter-signature">MWUAHHHH 💕</div>
+            </div>
+
+            <div class="love-letter">\
+                <p>I LOVEE YOUU  I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU   I LOVEE YOUU </p>
+            </div>
+
+            <div class="love-letter">
+                <p>MWUAHHH 💋💋 MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋  MWUAHHH 💋💋 <br></p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="gallery">
+            <h2>Our Beautiful Memories</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="placeholder-img"><img src="First Date.jpeg"></div>
+                    <div class="gallery-caption">Our first date - My eyes were only on youuu🥺</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><img src="Temple Date.jpeg "></div>
+                    <div class="gallery-caption">Went to temple date together 🤭🤭🤭</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><img src="Canvas.jpeg"></div>
+                    <div class="gallery-caption">We Were Doing canvas project in Art Class🎨🥺</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><img src="Wallace Mirror Pic.jpeg"></div>
+                    <div class="gallery-caption">You look sooooo awesomeeeee</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><img src="Scoopy's Date.jpeg"></div>
+                    <div class="gallery-caption">We went to wallace and Mwauahh mwuahh 💋💋💋</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><img src="tadah.jpeg"></div>
+                    <div class="gallery-caption">Remember this on 10th May we were sooo clingyyyy</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <h2>Our Love Story</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">First Meeting</div>
+                    <div class="timeline-content">
+                        22 Feb 2024
+                    </div>
+                    <div class="timeline-content">
+                        We met on surya birthday , we were total strangers and now i can't live a day without talking witchuuuu youu 
+                        and didn't know you will mean thiss muchh to mehhh.🥺🥺🥺
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Became Official</div>
+                    <div class="timeline-content">
+                        11 Jun 2024
+                    </div>
+                    <div class="timeline-content">
+                        The moment i call chuu minee ... holding handsss whileee my palmm is sweatinggg 🤣🤣🤣,,,,and feeding each other burger at Mcd whilee bothhh of usss is SHYYYYYY...
+                        One of the happiest days of my lifeeeeeeeeee.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">First Kiss</div>
+                    <div class="timeline-content">
+                        16 July 2024
+                    </div>
+                    <div class="timeline-content">
+                        The moment our lips touchedd 😘💋💋 in Block C Level 3 Room 6 🙈🙈🙈,,, not just lips .. our soullll met 
+                         ... share our saliva...heart beats on next to each other when hugging at that moment...sharing the same romantic moods 
+                         Was the best day of my lifeee .. will always be our best memories 
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Rangoli Night 🌙</div>
+                    <div class="timeline-content">
+                        29 November 2024
+                    </div>
+                    <div class="timeline-content">
+                        Adventures, laughing, having fun, training dance alone js both of us in the classroom whilee kissingg
+                        and creating memories that will last till lifetimee ... and alsoo we plan to dance matta on our weddinggg 💍🥺👉🏼👈🏼!!
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Scoopy's Date</div>
+                    <div class="timeline-content">
+                        4 Feb 2025
+                    </div>
+                    <div class="timeline-content">
+                        This is the dayy we went to date after a whilee ... it was soo nicee havingg the pancake with ice cream w cappucinoooo 🥺🥺🥺... and we mwuah mwuahhh alottt ... i really lovee the date of us because we actually spend time alott over thereee
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Today & Forever</div>
+                    <div class="timeline-content">
+                        Our Times Together:🙈 <br><span id="duration"></span>
+                    </div>
+                    <div class="timeline-content">
+                        Every day with you is a new chapter in our beautiful story. Let's continue to write more chapters in our life until our last breathe.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- Valentine Question Section -->
+        <section id="question" style="text-align: center; padding: 80px 50px;">
+            <h2 style="font-size: 3em; margin-bottom: 40px;">Willchuuu Be Maii Valentineee 🥺👉🏼👈🏼?</h2>
+            <div class="button-container" style="display: flex; justify-content: center; gap: 30px; margin-top: 50px; flex-wrap: wrap;">
+                <button id="yesBtn" style="background: #c74375; color: white; border: none; padding: 20px 60px; font-size: 1.5em; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(199,67,117,0.3); transition: all 0.3s ease; font-family: Georgia, serif;">
+                    Absolutely Yesss! 💕
+                </button>
+                <button id="noBtn" style="background: #f4a4c4; color: white; border: none; padding: 20px 60px; font-size: 1.5em; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(244,164,196,0.3); transition: all 0.1s ease; font-family: Georgia, serif; position: relative;">
+                    No
+                </button>
+            </div>
+            <div id="response" style="margin-top: 50px; font-size: 1.5em; color: #c74375; font-weight: bold; opacity: 0; transition: opacity 0.5s ease;"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Made with infinityyyyyyy loveee to the most pweetyyy woman in the whole worlddddd 💖... <br>
+            WHICHH IS MY PAPYYYY SAMIII KUTTYYYYYYY 🙈🙈🙈🙈🙈🙈</p>
+    </footer>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            mwuah.innerHTML = '💋';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            document.getElementById('heartsContainer').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Generate hearts periodically
+        setInterval(createHeart, 800);
+        
+        // Initial hearts
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+
+        // Valentine question buttons
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const response = document.getElementById('response');
+
+        // Yes button - show sweet message
+        yesBtn.addEventListener('click', function() {
+            response.innerHTML = "I knew you will say yes cuz you stuckk with me forever 😈😈😈! You made me the happiest men alive in the whole world! 💖✨";
+            response.style.opacity = '1';
+            
+            // Create celebration hearts
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+            
+            // Hide buttons
+            setTimeout(() => {
+                document.querySelector('.button-container').style.opacity = '0';
+            }, 500);
+        });
+
+        // No button - runs away on hover
+        noBtn.addEventListener('mouseenter', function() {
+            const container = document.querySelector('#question');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            
+            // Calculate available space
+            const maxX = containerRect.width - btnRect.width - 100;
+            const maxY = containerRect.height - btnRect.height - 100;
+            
+            // Random position within the section
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        });
+
+        // Yes button hover effect
+        yesBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0 8px 20px rgba(199,67,117,0.5)';
+        });
+
+        yesBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 5px 15px rgba(199,67,117,0.3)';
+        });
+        
+        //Duration Clock
+        const startDate = new Date("2024-06-11T00:00:00");
+
+        function updateDuration() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("duration").textContent =
+      ` ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+        }
+
+  updateDuration();
+  setInterval(updateDuration, 1000);
+    </script>
+</body>
+</html>
